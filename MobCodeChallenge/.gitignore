@@ -5,6 +5,8 @@ node_modules/
 www/build/
 platforms/
 plugins/
+resources/ios
+resources/android
 *.swp
 .DS_Store
 Thumbs.db
