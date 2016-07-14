@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!zipcode">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Item Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngIf="zipcode">
+        <img src="http://img2.izismile.com/img/img5/20120224/640/soon_meme_collection_640_14.jpg"/>
+          <ion-card-content>
+              <ion-card-title>Nine Inch Nails Live</ion-card-title>
+              <p>Weather information will appear here</p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Alert, NavController} from 'ionic-angular';
+import {ZipCodeDetailsPage} from '../zip-code-details/zip-code-details';
 
 
 @Component({
@@ -55,6 +56,8 @@ export class ZipCodesPage {
       }
   }
   zipcodeSelected(zipcode) {
-      console.log(zipcode);
+      this.nav.push(ZipCodeDetailsPage, {
+          zipcode : zipcode
+      });
   }
 }
