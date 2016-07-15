@@ -7,14 +7,12 @@ import {ZipCodeDetailsPage} from '../zip-code-details/zip-code-details';
   templateUrl: 'build/pages/zip-codes/zip-codes.html'
 })
 export class ZipCodesPage {
-  nav: NavController;
   zipcodes: string[];
 
   static get parameters() {
     return [[NavController]];
   }
-  constructor(nav) {
-      this.nav = nav;
+  constructor(private nav:NavController) {
       this.zipcodes = [];
   }
   addZipCode() {
