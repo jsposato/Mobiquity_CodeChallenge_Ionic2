@@ -12,12 +12,13 @@ export class ZipCodeDetailsPage {
   zipcodeWeather: Object;
   currentTemp: Constants;
   imageUrl: string;
+  weakimageUrl: string;
 
   constructor(private nav: NavController, private navParams: NavParams, private http:Http) {
     this.zipcode = this.navParams.get('zipcode');
     this.currentTemp = Constants.Temperature;
     this.getWeatherForZipcode(this.zipcode);
-    this.imageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${this.zipcode}&zoom=15&markers=color:red|${this.zipcode}&size=400x300&maptype=roadmap&key=${Constants.GOOGLE_API_KEY}`;
+    this.imageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${this.zipcode}&zoom=15&scale=2&markers=color:red|${this.zipcode}&size=400x300&maptype=roadmap&key=${Constants.GOOGLE_API_KEY}`;
   }
   switchUnit() {
       Constants.Temperature.UNIT = (Constants.Temperature.UNIT === "F" ? "C" : "F");
