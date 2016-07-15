@@ -10,12 +10,15 @@ import {Constants} from '../../Constants';
 export class ZipCodeDetailsPage {
   zipcode: string;
   zipcodeWeather: Object;
-  currentUnit: string;
+  currentTemp: Constants;
 
   constructor(private nav: NavController, navParams: NavParams, private http:Http) {
     this.zipcode = navParams.get('zipcode');
+    this.currentTemp = Constants.Temperature;
     this.getWeatherForZipcode(this.zipcode);
-    this.currentUnit = Constants.TEMPERATURE_UNIT;
+  }
+  switchUnit() {
+      Constants.Temperature.UNIT = (Constants.Temperature.UNIT === "F" ? "C" : "F");
   }
   getWeatherForZipcode(zipcode) {
       let loading = Loading.create();
@@ -42,7 +45,7 @@ export class ZipCodeDetailsPage {
       );
   }
   getTemperature(temp) {
-      if (Constants.TEMPERATURE_UNIT === "F") {
+      if (Constants.Temperature.UNIT === "F") {
           return ((parseFloat(temp) * 9/5) - 459.67).toFixed(2);
       } else {
           return (parseFloat(temp) - 273.15).toFixed(2);

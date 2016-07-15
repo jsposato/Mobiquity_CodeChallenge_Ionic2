@@ -4,6 +4,11 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>{{ zipcode }}</ion-title>
+    <ion-buttons end>
+        <button (click)="switchUnit()">
+            <ion-icon name="thermometer"></ion-icon><span>&deg;{{ currentTemp.UNIT }}</span>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -16,7 +21,7 @@
             <img item-left class="weather-icon" [src]="zipcodeWeather.weather[0].iconUrl"/>
             <h2>{{ zipcodeWeather.name }}</h2>
             <p>{{ zipcodeWeather.weather[0].main }}, {{ zipcodeWeather.weather[0].description }}</p>
-            <span item-right class="weather-temp">{{ getTemperature(zipcodeWeather.main.temp) }}&nbsp;&deg;{{ currentUnit }}</span>
+            <span item-right class="weather-temp">{{ getTemperature(zipcodeWeather.main.temp) }}&nbsp;&deg;{{ currentTemp.UNIT }}</span>
         </ion-item>
     </ion-card>
 </ion-content>
