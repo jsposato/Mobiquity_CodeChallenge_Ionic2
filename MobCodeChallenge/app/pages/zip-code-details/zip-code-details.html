@@ -16,7 +16,7 @@
             <img item-left class="weather-icon" [src]="zipcodeWeather.weather[0].iconUrl"/>
             <h2>{{ zipcodeWeather.name }}</h2>
             <p>{{ zipcodeWeather.weather[0].main }}, {{ zipcodeWeather.weather[0].description }}</p>
-            <span item-right class="weather-temp">{{ getTemperature(zipcodeWeather.main.temp) }}&deg;{{ currentUnit }}</span>
+            <span item-right class="weather-temp">{{ getTemperature(zipcodeWeather.main.temp) }}&nbsp;&deg;{{ currentUnit }}</span>
         </ion-item>
     </ion-card>
 </ion-content>
