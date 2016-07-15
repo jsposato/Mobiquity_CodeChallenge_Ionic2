@@ -38,20 +38,27 @@ export class ZipCodesPage {
   validateZipCode(zipcode) {
       let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipcode);
       if (isValidZip) {
-          this.zipcodes.push(zipcode);
+          if (this.zipcodes.indexOf(zipcode) !== -1) {
+              this.showGenericMessage('Zip Code was previously added');
+          } else {
+              this.zipcodes.push(zipcode);
+          }
       } else {
-          let alert = Alert.create({
-              title: 'Invalid Zip Code',
-              message: 'Zip Codes must be 5 digits only',
-              buttons: [{
-                  text: 'OK',
-                  handler: () => {
-                      alert.dismiss();
-                  }
-              }]
-          });
-          this.nav.present(alert);
+          this.showGenericMessage('Invalid Zip Code. Zip Codes must be 5 digits only');
       }
+  }
+  showGenericMessage(msg) {
+      let alert = Alert.create({
+          title: 'Error',
+          message: msg,
+          buttons: [{
+              text: 'OK',
+              handler: () => {
+                  alert.dismiss();
+              }
+          }]
+      });
+      this.nav.present(alert);
   }
   zipcodeSelected(zipcode) {
       this.nav.push(ZipCodeDetailsPage, {
