@@ -39,7 +39,7 @@ export class ZipCodesPage {
       let isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipcode);
       if (isValidZip) {
           if (this.zipcodes.indexOf(zipcode) !== -1) {
-              this.showGenericMessage('Zip Code was previously added');
+              this.showGenericMessage('Zip Code already added');
           } else {
               this.zipcodes.push(zipcode);
           }

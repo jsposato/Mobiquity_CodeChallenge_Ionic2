@@ -17,13 +17,13 @@ export class ZipCodeDetailsPage {
   constructor(private nav: NavController, private navParams: NavParams, private http:Http) {
     this.zipcode = this.navParams.get('zipcode');
     this.currentTemp = Constants.Temperature;
-    this.getWeatherForZipcode(this.zipcode);
+    this.getWeatherForZipcode(this.zipcode, null);
     this.imageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${this.zipcode}&zoom=15&scale=2&markers=color:red|${this.zipcode}&size=400x300&maptype=roadmap&key=${Constants.GOOGLE_API_KEY}`;
   }
   switchUnit() {
       Constants.Temperature.UNIT = (Constants.Temperature.UNIT === "F" ? "C" : "F");
   }
-  getWeatherForZipcode(zipcode) {
+  getWeatherForZipcode(zipcode, refresher) {
       let loading = Loading.create();
       this.nav.present(loading);
       let url = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&appid=" + Constants.OPENWEATHERMAP_API_KEY;
@@ -37,13 +37,17 @@ export class ZipCodeDetailsPage {
               });
               this.zipcodeWeather = data;
               console.log(data);
+              loading.dismiss();
+              if (refresher) {
+                  refresher.complete();
+              }
           },
           err => {
               console.error(err);
-          },
-          () => {
-              console.log("finally");
               loading.dismiss();
+              if (refresher) {
+                  refresher.complete();
+              }
           }
       );
   }
@@ -108,5 +112,8 @@ export class ZipCodeDetailsPage {
           dir = "NNW";
       }
       return dir;
+  }
+  doRefresh(refresher) {
+      this.getWeatherForZipcode(this.zipcode, refresher);
   }
 }
