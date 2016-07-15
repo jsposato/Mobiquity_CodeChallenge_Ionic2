@@ -15,5 +15,5 @@ Mobiquity's Code Challenge - in Ionic 2
 - Take a photo, and overlay the current temperature on any corner of the photo
 - Save the photo to the user’s library
 - Share the photo with Facebook (for iOS, use Apple’s Social Framework; for Android, use an Implicit Intent)
-- Write a unit test for something that you think should be tested
-- Show other weather information (e.g. cloudiness, humidity)
+- Write a unit test for a function that you wrote, to verify its functionality
+- Show other weather information (e.g. buttiness, humidity)
