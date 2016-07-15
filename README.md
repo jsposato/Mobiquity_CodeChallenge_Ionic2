@@ -8,6 +8,7 @@ Mobiquity's Code Challenge - in Ionic 2
 - [x] Allows the user to switch between ºC and ºF
 
 # Additional Features (Not Targeted but Nice-to-have)
+- [ ] Pull to refresh weather for zip code
 - [ ] Allow the user to select `Current Location` that automatically adds the current zip code to the list
 - [ ] Persist the user’s list of cities
 - [ ] Show a 5-day list of high and low temperatures
