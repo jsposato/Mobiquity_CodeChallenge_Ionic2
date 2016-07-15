@@ -11,9 +11,12 @@ Mobiquity's Code Challenge - in Ionic 2
 - [ ] Allow the user to select `Current Location` that automatically adds the current zip code to the list
 - [ ] Persist the user’s list of cities
 - [ ] Show a 5-day list of high and low temperatures
-- [ ] Post a tweet about the current weather (for iOS, use Apple’s Social Framework; for Android, use an Implicit Intent)
 - [ ] Take a photo, and overlay the current temperature on any corner of the photo
-- [ ] Save the photo to the user’s library
-- [ ] Share the photo with Facebook (for iOS, use Apple’s Social Framework; for Android, use an Implicit Intent)
 - [ ] Write a unit test for a function that you wrote, to verify its functionality
 - [ ] Show other weather information (e.g. cloudiness, humidity)
+
+# Even More Features
+- [ ] Google Analytics
+- [ ] Save the photo to the user’s library
+- [ ] Share the photo with Facebook (for iOS, use Apple’s Social Framework; for Android, use an Implicit Intent)
+- [ ] Post a tweet about the current weather (for iOS, use Apple’s Social Framework; for Android, use an Implicit Intent)
