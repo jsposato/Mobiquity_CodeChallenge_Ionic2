@@ -16,4 +16,4 @@ Mobiquity's Code Challenge - in Ionic 2
 - [ ] Save the photo to the user’s library
 - [ ] Share the photo with Facebook (for iOS, use Apple’s Social Framework; for Android, use an Implicit Intent)
 - [ ] Write a unit test for a function that you wrote, to verify its functionality
-- [ ] Show other weather information (e.g. buttiness, humidity)
+- [ ] Show other weather information (e.g. cloudiness, humidity)
