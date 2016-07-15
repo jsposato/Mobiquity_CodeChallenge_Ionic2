@@ -15,7 +15,7 @@
 <ion-content>
     <ion-card *ngIf="zipcodeWeather" class="zipcode-weather-card">
         <div class="weather-image-holder">
-            <img src="http://fitfulfocus.com/wp-content/uploads/2015/02/783af96d5414b5d30ba67c53b8677b7dcffd66e637a84c810f64f22361083135.jpg"/>
+            <img [src]="imageUrl" />
         </div>
         <ion-item>
             <img item-left class="weather-icon" [src]="zipcodeWeather.weather[0].iconUrl"/>

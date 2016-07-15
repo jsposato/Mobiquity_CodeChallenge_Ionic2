@@ -13,7 +13,7 @@ export class ZipCodesPage {
     return [[NavController]];
   }
   constructor(private nav:NavController) {
-      this.zipcodes = [];
+      this.zipcodes = ["32601"];
   }
   addZipCode() {
       let alert = Alert.create({
