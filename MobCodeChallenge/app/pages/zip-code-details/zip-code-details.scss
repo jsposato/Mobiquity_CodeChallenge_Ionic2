@@ -1,0 +1,12 @@
+.weather-image-holder {
+    position: relative;
+}
+
+button[fab].weather-temp-fab {
+    top: calc(100% - 50px);
+    z-index: 5;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    width: 85px;
+    height: 85px;
+    line-height: 85px;
+}

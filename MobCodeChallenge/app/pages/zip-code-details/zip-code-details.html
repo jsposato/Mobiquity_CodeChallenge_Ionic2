@@ -8,11 +8,15 @@
 </ion-header>
 
 <ion-content>
-    <ion-card *ngIf="zipcode">
-        <img src="http://img2.izismile.com/img/img5/20120224/640/soon_meme_collection_640_14.jpg"/>
-          <ion-card-content>
-              <ion-card-title>Nine Inch Nails Live</ion-card-title>
-              <p>Weather information will appear here</p>
-        </ion-card-content>
+    <ion-card *ngIf="zipcodeWeather" class="zipcode-weather-card">
+        <div class="weather-image-holder">
+            <img src="http://fitfulfocus.com/wp-content/uploads/2015/02/783af96d5414b5d30ba67c53b8677b7dcffd66e637a84c810f64f22361083135.jpg"/>
+            <button fab fab-right fab-top class="weather-temp-fab">{{ getTemperature(zipcodeWeather.main.temp) }}&deg;{{ currentUnit }}</button>
+        </div>
+        <ion-item>
+            <ion-icon name="football" item-left large></ion-icon>
+            <h2>{{ zipcodeWeather.name }}</h2>
+            <p>{{ zipcodeWeather.weather[0].main }}</p>
+        </ion-item>
     </ion-card>
 </ion-content>
