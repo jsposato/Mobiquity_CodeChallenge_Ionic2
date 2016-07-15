@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Loading, NavController, NavParams} from 'ionic-angular';
-import {Http, Headers} from '@angular/http';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -26,6 +26,10 @@ export class ZipCodeDetailsPage {
       .map(res => res.json())
       .subscribe(
           data => {
+              data.weather.map(item => {
+                  item.iconUrl = "http://openweathermap.org/img/w/" + item.icon + ".png";
+                  return item;
+              });
               this.zipcodeWeather = data;
               console.log(data);
           },
@@ -33,7 +37,7 @@ export class ZipCodeDetailsPage {
               console.error(err);
           },
           () => {
-              console.log("finally?");
+              console.log("finally");
               loading.dismiss();
           }
       );
@@ -44,5 +48,60 @@ export class ZipCodeDetailsPage {
       } else {
           return (parseFloat(temp) - 273.15).toFixed(2);
       }
+  }
+  getDirection(deg) {
+      let dir = "";
+      if (deg >= 0 && deg <= 11.25) {
+          dir = "N";
+      }
+      if (deg > 348.75 && deg <= 360) {
+          dir = "N";
+      }
+      if (deg > 11.25 && deg <= 33.75) {
+          dir = "NNE";
+      }
+      if (deg > 33.75 && deg <= 56.25) {
+          dir = "NE";
+      }
+      if (deg > 56.25 && deg <= 78.75) {
+          dir = "ENE";
+      }
+      if (deg > 78.75 && deg <= 101.25) {
+          dir = "E";
+      }
+      if (deg > 101.25 && deg <= 123.75) {
+          dir = "ESE";
+      }
+      if (deg > 123.75 && deg <= 146.25){
+          dir = "SE";
+      }
+      if (deg > 146.25 && deg <= 168.75){
+          dir = "SSE";
+      }
+      if (deg > 168.75 && deg <= 191.25){
+          dir = "S";
+      }
+      if (deg > 191.25 && deg <= 213.75){
+          dir = "SSW";
+      }
+      if (deg > 213.75 && deg <= 236.25){
+          dir = "SW";
+      }
+      if (deg > 236.25 && deg <= 258.75){
+          dir = "WSW";
+      }
+      if (deg > 258.75 && deg <= 281.25){
+          dir = "W";
+      }
+      if (deg > 281.25 && deg <= 303.75){
+          dir = "WNW";
+      }
+      if (deg > 303.75 && deg <= 326.25){
+          dir = "NW";
+      }
+      if (deg > 326.25 && deg <= 348.75){
+          dir = "NNW";
+      }
+      return dir;
   }
 }

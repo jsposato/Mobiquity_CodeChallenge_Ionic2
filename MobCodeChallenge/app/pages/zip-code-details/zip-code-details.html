@@ -3,7 +3,7 @@
     <button menuToggle *ngIf="!zipcode">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Item Details</ion-title>
+    <ion-title>{{ zipcode }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,12 +11,12 @@
     <ion-card *ngIf="zipcodeWeather" class="zipcode-weather-card">
         <div class="weather-image-holder">
             <img src="http://fitfulfocus.com/wp-content/uploads/2015/02/783af96d5414b5d30ba67c53b8677b7dcffd66e637a84c810f64f22361083135.jpg"/>
-            <button fab fab-right fab-top class="weather-temp-fab">{{ getTemperature(zipcodeWeather.main.temp) }}&deg;{{ currentUnit }}</button>
         </div>
         <ion-item>
-            <ion-icon name="football" item-left large></ion-icon>
+            <img item-left class="weather-icon" [src]="zipcodeWeather.weather[0].iconUrl"/>
             <h2>{{ zipcodeWeather.name }}</h2>
-            <p>{{ zipcodeWeather.weather[0].main }}</p>
+            <p>{{ zipcodeWeather.weather[0].main }}, {{ zipcodeWeather.weather[0].description }}</p>
+            <span item-right class="weather-temp">{{ getTemperature(zipcodeWeather.main.temp) }}&deg;{{ currentUnit }}</span>
         </ion-item>
     </ion-card>
 </ion-content>
